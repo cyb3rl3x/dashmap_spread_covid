@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 from geopy.distance import geodesic
@@ -102,6 +103,8 @@ for frame in range(n_frames):
             intensidade = np.clip(np.random.normal(loc=intensidade_base * alpha, scale=0.25), 0, 1)
             dados.append([data.strftime("%Y-%m-%d"), lat_ponto, lon_ponto, intensidade])
 
-# Criar DataFrame
+
+os.makedirs("data", exist_ok=True)
+
 df = pd.DataFrame(dados, columns=["data", "lat", "lon", "intensidade"])
 df.to_csv("data/dataset_infeccao_brasil.csv", index=False)
