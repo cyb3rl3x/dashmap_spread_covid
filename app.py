@@ -7,10 +7,10 @@ import subprocess
 
 # Verificações automáticas
 if not os.path.exists("data/dataset_infeccao_brasil.csv"):
-    subprocess.run(["python", "01_gerar_dados.py"], check=True)
+    subprocess.run(["python", "build_dataset.py"], check=True)
 
 if not os.path.exists("mapa_animado_infeccao.html"):
-    subprocess.run(["python", "02_gerar_mapa.py"], check=True)
+    subprocess.run(["python", "build_map.py"], check=True)
 
 
 # Caminho para o arquivo do mapa gerado
